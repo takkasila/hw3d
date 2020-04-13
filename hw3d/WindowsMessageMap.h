@@ -18,21 +18,14 @@
 *	along with The Chili Direct3D Engine.  If not, see <http://www.gnu.org/licenses/>.    *
 ******************************************************************************************/
 #pragma once
-#include <exception>
-#include <string>
+#include <unordered_map>
+#include "ChiliWin.h"
 
-class ChiliException: public std::exception
+class WindowsMessageMap
 {
 public:
-	ChiliException( int line, const char* file ) noexcept;
-	const char* what() const noexcept override;
-	virtual const char* GetType() const noexcept;
-	int GetLine() const noexcept;
-	const std::string& GetFile() const noexcept;
-	std::string GetOriginString() const noexcept;
+	WindowsMessageMap() noexcept;
+	std::string operator()( DWORD msg, LPARAM lp, WPARAM wp ) const noexcept;
 private:
-	int line;
-	std::string file;
-protected:
-	mutable std::string whatBuffer;
+	std::unordered_map<DWORD, std::string> map;
 };
