@@ -19,6 +19,9 @@
     <Filter Include="Shader">
       <UniqueIdentifier>{1c9e0fd7-ce08-4e1d-a310-8f76bb42f6de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Macros">
+      <UniqueIdentifier>{07ef7e11-2528-4424-8cae-89d1cfaa3024}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="WinMain.cpp">
@@ -91,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="WindowsMessageMap.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GraphicsThrowMacros.h">
+      <Filter>Header Files\Macros</Filter>
+    </ClInclude>
+    <ClInclude Include="WindowsThrowMacros.h">
+      <Filter>Header Files\Macros</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
