@@ -11,6 +11,8 @@
 #include "GDIPlusManager.h"
 #include "imgui/imgui.h"
 
+namespace dx = DirectX;
+
 GDIPlusManager gdipm;
 
 App::App()
@@ -81,6 +83,7 @@ void App::DoFrame()
 {
 	const auto dt = timer.Mark() * speed_factor;
 	wnd.Gfx().BeginFrame( 0.07f, 0.0f, 0.12f );
+	wnd.Gfx().SetCamera( cam.GetMatrix() );
 
 	for( auto& d : drawables )
 	{
@@ -96,6 +99,8 @@ void App::DoFrame()
 		ImGui::Text( "Status: %s", wnd.kbd.KeyIsPressed( VK_SPACE ) ? "PAUSED" : "RUNNING" );
 	}
 	ImGui::End();
+	//	imgui window to control camera
+	cam.SpawnControlWindow();
 
 	// present
 	wnd.Gfx().EndFrame();
