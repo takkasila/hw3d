@@ -18,7 +18,7 @@ private:
 		float padding;
 	};
 private:
-	DirectX::XMFLOAT3 pos = { 0.0f,0.0f,0.0f };;
+	DirectX::XMFLOAT3 pos = { 0.0f,0.0f,0.0f };
 	mutable SolidSphere mesh;
 	mutable PixelConstantBuffer<PointLightCBuf> cbuf;
 };
