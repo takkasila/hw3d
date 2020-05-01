@@ -77,6 +77,11 @@ public:
 	void SetTitle( const std::string& title );
 	static std::optional<int> ProcessMessages() noexcept;
 	Graphics& Gfx();
+	int Width() noexcept
+	{ return width; }
+	int Height() noexcept
+	{ return height; }
+
 private:
 	static LRESULT CALLBACK HandleMsgSetup( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam ) noexcept;
 	static LRESULT CALLBACK HandleMsgThunk( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam ) noexcept;

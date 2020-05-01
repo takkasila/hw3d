@@ -16,7 +16,7 @@ GDIPlusManager gdipm;
 
 App::App()
 	:
-	wnd( 800, 600, "The Donkey Fart Box" ),
+	wnd( 1366, 768, "D3D11 Lmao" ),
 	light( wnd.Gfx() )
 {
 	class Factory
@@ -82,7 +82,7 @@ App::App()
 		}
 	}
 
-	wnd.Gfx().SetProjection( DirectX::XMMatrixPerspectiveLH( 1.0f, 3.0f / 4.0f, 0.5f, 40.0f ) );
+	wnd.Gfx().SetProjection( DirectX::XMMatrixPerspectiveLH( 1.0f, (float)wnd.Height() / wnd.Width(), 0.5f, 40.0f ) );
 }
 
 void App::DoFrame()
