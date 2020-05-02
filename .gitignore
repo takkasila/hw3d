@@ -5,7 +5,7 @@
 
 
 # Compiled shader object
-*.cso
+hw3d/*.cso
 
 # User-specific files
 *.rsuser
@@ -70,6 +70,8 @@ StyleCopReport.xml
 *.ilk
 *.meta
 *.obj
+!hw3d/Models/*.obj
+!hw3d/assimp/bin/*
 *.iobj
 *.pch
 *.pdb
