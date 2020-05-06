@@ -6,6 +6,7 @@
 
 # Compiled shader object
 hw3d/*.cso
+hw3d/imgui.ini
 
 # User-specific files
 *.rsuser
