@@ -16,6 +16,7 @@ App::App()
 	light( wnd.Gfx() )
 {
 	wnd.Gfx().SetProjection( DirectX::XMMatrixPerspectiveLH( 1.0f, (float)wnd.Height() / wnd.Width(), 0.5f, 40.0f ) );
+	wnd.DisableCursor();
 }
 
 void App::DoFrame()
