@@ -152,8 +152,14 @@ void Graphics::BeginFrame( float red, float green, float blue ) noexcept
 		ImGui::NewFrame();
 	}
 
-	const float color[] = { red,green,blue,1.0f };
-	pContext->ClearRenderTargetView( pTarget.Get(), color );
+	// spawn background color control window
+	if (ImGui::Begin( "BackgroundColor" ))
+	{
+		ImGui::ColorEdit3( "BackgroundColor", backgroundColor );
+	}
+	ImGui::End();
+
+	pContext->ClearRenderTargetView( pTarget.Get(), backgroundColor );
 	pContext->ClearDepthStencilView( pDSV.Get(), D3D11_CLEAR_DEPTH, 1.0f, 0u );
 }
 

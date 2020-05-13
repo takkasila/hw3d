@@ -72,6 +72,7 @@ public:
 	void DisableImgui() noexcept;
 	bool IsImguiEnabled() const noexcept;
 private:
+	float backgroundColor[ 3 ] = { 0.27734375f, 0, 0.0390625f };
 	DirectX::XMMATRIX projection;
 	DirectX::XMMATRIX camera;
 	bool imguiEnabled = true;
