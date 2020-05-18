@@ -34,7 +34,7 @@ const std::string& ModelException::GetNote() const noexcept
 // Mesh
 Mesh::Mesh( Graphics& gfx, std::vector<std::shared_ptr<Bind::Bindable>> bindPtrs )
 {
-	AddBind( std::make_shared<Bind::Topology>( gfx, D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST ) );
+	AddBind( Bind::Topology::Resolve( gfx, D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST ) );
 
 	for (auto& pb : bindPtrs)
 	{
@@ -295,7 +295,7 @@ std::unique_ptr<Mesh> Model::ParseMesh( Graphics& gfx, const aiMesh& mesh, const
 	bindablePtrs.push_back( IndexBuffer::Resolve( gfx, meshTag, indices ) );
 
 	auto pvs = VertexShader::Resolve( gfx, "PhongVS.cso" );
-	auto pvsbc = static_cast<VertexShader&>(*pvs).GetBytecode();
+	auto pvsbc = pvs->GetBytecode();
 	bindablePtrs.push_back( std::move( pvs ) );
 
 	bindablePtrs.push_back( InputLayout::Resolve( gfx, vbuf.GetLayout(), pvsbc ) );
