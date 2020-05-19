@@ -14,8 +14,10 @@ GDIPlusManager gdipm;
 App::App()
 	:
 	wnd( 1366, 768, "D3D11 Lmao" ),
-	light( wnd.Gfx() )
+	light( wnd.Gfx() ),
+	plane( wnd.Gfx(), 3.0f )
 {
+	plane.SetPos( { 1.0f,17.0f,-1.0f } );
 	wnd.Gfx().SetProjection( DirectX::XMMatrixPerspectiveLH( 1.0f, (float)wnd.Height() / wnd.Width(), 0.5f, 40.0f ) );
 }
 
@@ -27,8 +29,8 @@ void App::DoFrame()
 	light.Bind( wnd.Gfx(), cam.GetMatrix() );
 
 	nano.Draw( wnd.Gfx() );
-	nano2.Draw( wnd.Gfx() );
 	light.Draw( wnd.Gfx() );
+	plane.Draw( wnd.Gfx() );
 
 	while (const auto e = wnd.kbd.ReadKey())
 	{
