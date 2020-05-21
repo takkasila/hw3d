@@ -14,12 +14,8 @@ GDIPlusManager gdipm;
 App::App()
 	:
 	wnd( 1366, 768, "D3D11 Lmao" ),
-	light( wnd.Gfx() ),
-	plane( wnd.Gfx(), 3.0f ),
-	cube( wnd.Gfx(), 4.0f )
+	light( wnd.Gfx() )
 {
-	plane.SetPos( { 1.0f,17.0f,-1.0f } );
-	cube.SetPos( { 3.0f,14.0f,-2.0f } );
 	wnd.Gfx().SetProjection( DirectX::XMMatrixPerspectiveLH( 1.0f, (float)wnd.Height() / wnd.Width(), 0.5f, 40.0f ) );
 }
 
@@ -30,10 +26,9 @@ void App::DoFrame()
 	wnd.Gfx().SetCamera( cam.GetMatrix() );
 	light.Bind( wnd.Gfx(), cam.GetMatrix() );
 
-	nano.Draw( wnd.Gfx() );
+	wall.Draw( wnd.Gfx() );
+	// nano.Draw( wnd.Gfx() );
 	light.Draw( wnd.Gfx() );
-	plane.Draw( wnd.Gfx() );
-	cube.Draw( wnd.Gfx() );
 
 	while (const auto e = wnd.kbd.ReadKey())
 	{
@@ -102,9 +97,8 @@ void App::DoFrame()
 	cam.SpawnControlWindow();
 	light.SpawnControlWindow();
 	ShowImguiDemoWindow();
-	nano.ShowWindow();
-	plane.SpawnControlWindow( wnd.Gfx() );
-	cube.SpawnControlWindow( wnd.Gfx() );
+	wall.ShowWindow( "Wall" );
+	//nano.ShowWindow( "Model 1" );
 
 	// present
 	wnd.Gfx().EndFrame();
