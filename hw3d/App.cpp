@@ -16,6 +16,8 @@ App::App()
 	wnd( 1366, 768, "D3D11 Lmao" ),
 	light( wnd.Gfx() )
 {
+	wall.SetRootTransform( dx::XMMatrixTranslation( -1.5f, 0.0f, 0.0f ) );
+	tp.SetPos( { 1.5f,0.0f,0.0f } );
 	wnd.Gfx().SetProjection( DirectX::XMMatrixPerspectiveLH( 1.0f, (float)wnd.Height() / wnd.Width(), 0.5f, 40.0f ) );
 }
 
@@ -27,6 +29,7 @@ void App::DoFrame()
 	light.Bind( wnd.Gfx(), cam.GetMatrix() );
 
 	wall.Draw( wnd.Gfx() );
+	tp.Draw( wnd.Gfx() );
 	// nano.Draw( wnd.Gfx() );
 	light.Draw( wnd.Gfx() );
 
@@ -96,6 +99,7 @@ void App::DoFrame()
 	// imgui windows
 	cam.SpawnControlWindow();
 	light.SpawnControlWindow();
+	tp.SpawnControlWindow( wnd.Gfx() );
 	ShowImguiDemoWindow();
 	wall.ShowWindow( "Wall" );
 	//nano.ShowWindow( "Model 1" );
