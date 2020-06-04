@@ -16,8 +16,8 @@ App::App()
 	wnd( 1366, 768, "D3D11 Lmao" ),
 	light( wnd.Gfx() )
 {
-	wall.SetRootTransform( dx::XMMatrixTranslation( -1.5f, 0.0f, 0.0f ) );
-	tp.SetPos( { 1.5f,0.0f,0.0f } );
+	//wall.SetRootTransform( dx::XMMatrixTranslation( -1.5f, 0.0f, 0.0f ) );
+	//tp.SetPos( { 1.5f,0.0f,0.0f } );
 	wnd.Gfx().SetProjection( DirectX::XMMatrixPerspectiveLH( 1.0f, (float)wnd.Height() / wnd.Width(), 0.5f, 40.0f ) );
 }
 
@@ -28,9 +28,10 @@ void App::DoFrame()
 	wnd.Gfx().SetCamera( cam.GetMatrix() );
 	light.Bind( wnd.Gfx(), cam.GetMatrix() );
 
-	wall.Draw( wnd.Gfx() );
-	tp.Draw( wnd.Gfx() );
+	//wall.Draw( wnd.Gfx() );
+	//tp.Draw( wnd.Gfx() );
 	// nano.Draw( wnd.Gfx() );
+	gobber.Draw( wnd.Gfx() );
 	light.Draw( wnd.Gfx() );
 
 	while (const auto e = wnd.kbd.ReadKey())
@@ -99,9 +100,10 @@ void App::DoFrame()
 	// imgui windows
 	cam.SpawnControlWindow();
 	light.SpawnControlWindow();
-	tp.SpawnControlWindow( wnd.Gfx() );
-	ShowImguiDemoWindow();
-	wall.ShowWindow( "Wall" );
+	gobber.ShowWindow( "gobber" );
+	//tp.SpawnControlWindow( wnd.Gfx() );
+	//ShowImguiDemoWindow();
+	//wall.ShowWindow( "Wall" );
 	//nano.ShowWindow( "Model 1" );
 
 	// present
