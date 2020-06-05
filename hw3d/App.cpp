@@ -100,7 +100,7 @@ void App::DoFrame()
 	// imgui windows
 	cam.SpawnControlWindow();
 	light.SpawnControlWindow();
-	gobber.ShowWindow( "gobber" );
+	gobber.ShowWindow( wnd.Gfx(), "gobber" );
 	//tp.SpawnControlWindow( wnd.Gfx() );
 	//ShowImguiDemoWindow();
 	//wall.ShowWindow( "Wall" );
