@@ -53,7 +53,7 @@ float4 main(float3 viewFragPos : Position, float3 viewNormal : Normal, float3 vi
     const float att = Attenuate(attConst, attLin, attQuad, lv.distToL);
 
 	// diffuse intensity
-    const float3 diffuse = Diffuse(diffuseColor, diffuseIntensity, att, lv.vToL, viewNormal);
+    const float3 diffuse = Diffuse(diffuseColor, diffuseIntensity, att, lv.dirToL, viewNormal);
     
     //  specular reflected
     const float3 specularReflected = Speculate(specularReflectionColor, 1.0f, viewNormal, lv.vToL, viewFragPos, att, specularPower);

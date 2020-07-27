@@ -42,7 +42,7 @@ public:
 		BOOL  normalMapEnabled = TRUE;
 		BOOL  specularMapEnabled = TRUE;
 		BOOL  hasGlossMap = FALSE;
-		float specularPower = 3.0f;
+		float specularPower = 3.1f;
 		DirectX::XMFLOAT3 specularColor = { 0.75f,0.75f,0.75f };
 		float specularMapWeight = 0.671f;
 	};
